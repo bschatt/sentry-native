@@ -476,7 +476,7 @@ sentry__strtod_c(const char *ptr, char **endptr)
 {
 #ifdef SENTRY_PLATFORM_WINDOWS
     return _strtod_l(ptr, endptr, c_locale());
-#elif defined(SENTRY_PLATFORM_ANDROID) || defined(SENTRY_PLATFORM_IOS)
+#elif defined(SENTRY_PLATFORM_ANDROID) || defined(SENTRY_PLATFORM_IOS) || defined(SENTRY_PLATFORM_EMSCRIPTEN)
     return strtod(ptr, endptr);
 #else
     return strtod_l(ptr, endptr, c_locale());

@@ -46,6 +46,10 @@ extern "C" {
 #elif defined(__linux) || defined(__linux__)
 #    define SENTRY_PLATFORM_LINUX
 #    define SENTRY_PLATFORM_UNIX
+#elif defined(__EMSCRIPTEN__)
+#    define SENTRY_PLATFORM_LINUX
+#    define SENTRY_PLATFORM_UNIX
+#    define SENTRY_PLATFORM_EMSCRIPTEN
 #else
 #    error unsupported platform
 #endif

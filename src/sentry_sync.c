@@ -74,6 +74,8 @@ sentry__thread_setname(sentry_threadid_t thread_id, const char *thread_name)
         return 1;
     }
     return pthread_setname_np(thread_name);
+#    elif defined(SENTRY_PLATFORM_EMSCRIPTEN)
+    return 0;
 #    else
     return pthread_setname_np(thread_id, thread_name);
 #    endif
